@@ -149,6 +149,13 @@ Once the process is completed, as indicated on status bar, you may close Rufus.
 
 let's move on to the booting process, but first, let's make sure we understand what we're doing.
 
+## **Accessing BIOS/UEFI Theory**
+
+For the next section, we will have to navigate into the BIOS/UEFI of our machine. I want to be clear: once you go into BIOS/UEFI, you will not easily be able to go back and forth to reference this document. You may want to open this page on another screen not tied to the machine you will be using to boot into Kali Linux. If that’s not an option, take your time to read through the remainder of this material. Only proceed once you feel confident in your ability to complete all steps without guidance.
+
+Additionally, the process for entering BIOS/UEFI varies greatly from machine to machine. Some involve pressing F2 or Del upon reboot, but hotkey methods can differ. I will show the most universal and common way to enter BIOS/UEFI on Windows 11, but you may need to search the internet for help achieving this on your specific machine.
+
+If this is your first experience with BIOS/UEFI, I suggest going to YouTube and watching some videos on it, preferably videos with a machine similar to yours. That way, you know what to expect when you’re in there, as BIOS/UEFI interfaces can be very different from a standard computer interface (you will likely navigate using only your keyboard and no mouse), and BIOS/UEFI interfaces can differ drastically between machines. For instance, even though they both run Windows 11, an Intel and an Asus machine might have completely different interfaces. It is best to take a second and familiarize yourself so you don't feel overwhelmed once you are inside.
 
 ## **Boot Priority Theory**
 
@@ -162,7 +169,7 @@ So, we need to adjust something called Boot Priority.
 
 Boot priority determines the order in which a computer's system firmware (BIOS or UEFI) checks devices (such as hard drives, USB drives, or network interfaces) to find a bootable operating system, allowing you to choose which device the system will attempt to boot from first.
 
-We will change our boot priority to USB so that our system will boot from there first, before trying it's default OS, in my case Windows 11.
+We will change our boot priority to USB so that our system will boot from there first, before trying its default OS, in my case Windows 11.
 
 ## **Secure Boot Theory**
 
@@ -181,21 +188,89 @@ Make sure to re-enable Secure Boot when you're not using your Kali Linux system.
 EVEN IF YOUR MACHINE DOES NOT REQUIRE SECURE BOOT TO BE RE-ENABLED TO BOOT TO YOUR ORIGINAL OS, PLEASE RE-ENABLE IT ANYWAY.
 IT IS AN IMPORTANT SECURITY FEATURE, AND YOU ONLY WANT IT OFF WHILE IT SERVES A PURPOSE.
 
-Now that you understand the theory behind it let's move on to the technical steps.
+Now that you understand the theory behind it, let's move on to the technical steps. Also, please note that I do not have the capability to screenshot my UEFI interface. So the following explanations will only have text. This is another reason I recommend watching a YouTube video on your/any BIOS/UEFI interface.
 
-## 1. **Accesing BIOS/UEFI**
+## 1. **Launch BIOS/UEFI using the SHIFT + Restart Method on a Windows 11 Machine**
 
-To edit boot priority and disable Secure Boot, we will have to navigate into the BIOS/UEFI of our machine. I want to be clear: once you go into BIOS/UEFI, you will not easily be able to go back and forth to reference this document. You may want to open this page on another screen not tied to the machine you will be using to boot into Kali Linux. If that’s not an option, take your time to read through the remainder of this material. Only proceed once you feel confident in your ability to complete all steps without guidance.
-
-Additionally, the process for entering BIOS/UEFI varies greatly from machine to machine. Some involve pressing F2 or Del upon reboot, but hotkey methods can differ. I will show the most universal and common way to enter BIOS/UEFI on Windows 11, but you may need to search the internet for help achieving this on your specific machine.
-
-Launch BIOS/UEFI using the SHIFT + Restart Method on a Windows 11 Machine
-
-1. Hold down the Shift key on your keyboard.
+1a. Hold down the Shift key on your keyboard.
    
-2. While holding Shift, click the Start button, then select Power > Restart.
+1b. While holding Shift, click the Start button, then select Power > Restart.
    
-3. Your PC will reboot into the Advanced Startup menu.
+1c. Your PC will reboot into the Advanced Startup menu.
    
-4. Go to Troubleshoot > Advanced options > UEFI Firmware Settings > Restart.
+1d. Go to Troubleshoot > Advanced options > UEFI Firmware Settings > Restart.
+
+## 2. **Change Settings**
+This step is more difficult for me to explain via text. As explained earlier, in the Accessing BIOS/UEFI Theory section, there are various ways in which the BIOS/UEFI may function depending on your machine.
+
+It is likely that you will have to navigate using arrows or hotkeys.
+
+I will explain the process as it works for me on my Intel Windows machine.
+
+1. I am initially presented with a startup menu containing options. At this point, I must select F10 for BIOS Setup. You will be looking for something worded similarly if presented with options.
+2. Then I am brought to a screen with several section headers up top. I use my arrows to navigate to the section titled Boot Options.
+3. In my Boot Options, I can see options for both Boot Priority and Secure Boot.
+4. I use my arrows to navigate down to Secure Boot and press ENTER.
+5. I receive a pop-up which states "Enable" and "Disable".
+6. I use arrows to navigate to "Disable" and I hit ENTER.
+7. I am returned to my prior screen and my Secure Boot now states Disabled.
+8. I use my arrow keys to navigate slightly further down the page until I reach Boot Order. Under Boot Order, I see a list of devices.
+9. Once I am there, instructions appear to my left.
+10. They state that I can use my up and down arrows to select a device, and my F5 and F6 keys to move the devices up and down in the list.
+11. I move USB to the very top of the list, which gives it priority.
+12. I use my arrow keys to navigate back to the top menu and select Exit.
+13. Under the Exit menu, I see "Save Changes and Exit".
+14. I navigate there and press ENTER.
+15. I receive a pop-up and press ENTER again to confirm I want to save changes and exit.
+
+At this point, the machine exits BIOS/UEFI and restarts.
+
+On my machine, I am prompted with a blue screen that informs me that changes have been made to my system. It asks me to confirm these changes by entering the supplied password and pressing Enter. I comply, and my machine begins to boot Kali Linux.
+
+Upon this boot, and every boot from the USB drive from here on out, I am presented with the Kali Linux Live Menu.
+
+At this menu, use your arrow keys to navigate to the fourth option, which states "Live system with USB Persistence," and hit Enter to select it.
+
+Your machine should now proceed to boot into Kali Linux Live.
+
+<img src="https://github.com/user-attachments/assets/11bc3672-8fa0-45c2-847a-30b811dc5826" width="600"/>
+
+If you see this screen then...
+
+### Congratulations! You now have your very own Kali Linux Machine to explore! 
+
+I hope this proves to be a worthwhile tool for you. Use it well and ethically. I believe in you! :)
+
+You can call it a day here. However, if you want to check your persistence (and see a tiny bit of BASH on a Linux terminal), follow the next steps.
+
+### **Check the persistence of your USB**
+
+1.  In your Kali machine, open the terminal. The icon for the terminal is near the top right-hand corner.
+2.  Linux Bash and the file system are case-sensitive, so be exact and type the command as it appears below:
+    touch USBProject
+3. Hit Enter. You have now created a text file titled "USBProject." (In my screenshot, you will see I took it a step further and added words to the file, but this is not necessary.) <br>
+   <img src="https://github.com/user-attachments/assets/6b1b340b-1720-4713-a58b-2097d4945618" width="600"/>
+4. Exit the terminal by either clicking the "X" or typing exit, then turn off your computer.
+5. Turn your computer back on, making sure to select "Live system with USB Persistence" again when prompted.
+6. Check to see if your file is still there by opening the terminal and typing the command:
+   ls
+7. You should see the file "USBProject" listed among the output. This proves that your system has persistence.
+   <img src="https://github.com/user-attachments/assets/05c394e2-c712-4dac-89f5-b035bfbcd259" width="600"/>
+
+If, for any reason, you do not see it there, please reread this tutorial and make sure you have followed all the steps exactly.
+
+
+## Thank you
+Thank you for taking the time to read through this project. I hope you successfully followed along and made your first Kali Linux Live Bootable USB Drive.
+
+If you did, feel free to let me know on LinkedIn.
+
+Have a great day, and keep learning! :)
+
+-Fel
+
+
+
+
+
 
