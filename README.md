@@ -144,9 +144,13 @@ Rufus will take over from here. It may take a little bit, so feel free to take a
 
 Once the process is completed, as indicated on status bar, you may close Rufus.
 
-## ***Congratulations! You should now have a Kali Linux Live bootable USB drive with persistence!***
 
-Now, let's move on to the booting process, but first, let's make sure we understand what we're doing.
+# ***Congratulations! You should now have a Kali Linux Live bootable USB drive with persistence!***
+
+let's move on to the booting process, but first, let's make sure we understand what we're doing.
+
+
+## **Boot Priority Theory**
 
 Booting is the process of starting up a computer, where the system loads essential software, such as the operating system and kernel, from storage into memory, making the computer operational.
 
@@ -159,6 +163,8 @@ So, we need to adjust something called Boot Priority.
 Boot priority determines the order in which a computer's system firmware (BIOS or UEFI) checks devices (such as hard drives, USB drives, or network interfaces) to find a bootable operating system, allowing you to choose which device the system will attempt to boot from first.
 
 We will change our boot priority to USB so that our system will boot from there first, before trying it's default OS, in my case Windows 11.
+
+## **Secure Boot Theory**
 
 The last concept we should familiarize ourselves with before proceeding is Secure Boot.
 
@@ -177,4 +183,19 @@ IT IS AN IMPORTANT SECURITY FEATURE, AND YOU ONLY WANT IT OFF WHILE IT SERVES A 
 
 Now that you understand the theory behind it let's move on to the technical steps.
 
+## 1. **Accesing BIOS/UEFI**
+
+To edit boot priority and disable Secure Boot, we will have to navigate into the BIOS/UEFI of our machine. I want to be clear: once you go into BIOS/UEFI, you will not easily be able to go back and forth to reference this document. You may want to open this page on another screen not tied to the machine you will be using to boot into Kali Linux. If that’s not an option, take your time to read through the remainder of this material. Only proceed once you feel confident in your ability to complete all steps without guidance.
+
+Additionally, the process for entering BIOS/UEFI varies greatly from machine to machine. Some involve pressing F2 or Del upon reboot, but hotkey methods can differ. I will show the most universal and common way to enter BIOS/UEFI on Windows 11, but you may need to search the internet for help achieving this on your specific machine.
+
+Launch BIOS/UEFI using the SHIFT + Restart Method on a Windows 11 Machine
+
+1. Hold down the Shift key on your keyboard.
+   
+2. While holding Shift, click the Start button, then select Power > Restart.
+   
+3. Your PC will reboot into the Advanced Startup menu.
+   
+4. Go to Troubleshoot > Advanced options > UEFI Firmware Settings > Restart.
 
