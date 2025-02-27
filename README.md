@@ -246,7 +246,7 @@ If you see this screen then...
 
 I hope this proves to be a worthwhile tool for you. Use it well and ethically. I believe in you! :)
 
-You can call it a day here. However, if you want to check your persistence (and see a tiny bit of BASH on a Linux terminal), follow the next steps.
+You can call it a day here. However, if you want to check your persistence (and see a tiny bit of Bash on a Linux terminal), follow the next steps.
 
 ### **Check the persistence of your USB**
 
