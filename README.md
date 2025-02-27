@@ -6,11 +6,11 @@ The objective of this project is to demonstrate how to create a persistent Kali 
 Additionally, we will cover important security verification practices, such as checking the SHA256 hash of the Kali Linux Live ISO to ensure file integrity, and explaining Rufus’s certificate-based verification for confirming the authenticity of the downloaded file.
 
 ### Skills Learned
-  - Creating a bootable USB with persistence using Rufus
+  - Creating a persistent bootable USB using Rufus
   - Understanding the role of persistence in penetration testing and cybersecurity operations
-  - Troubleshooting USB-related issues such as partitioning and boot errors
-  - Familiarity with managing USB boot settings and Linux operating systems
-  - Practical experience with Linux and Kali Linux in particular
+  - Ensuring file integrity and authenticity by verifying the SHA256 hash and using Rufus’s certificate-based validation
+  - Navigating BIOS/UEFI settings to configure USB boot options for a live operating system
+  - Gaining familiarity with the Kali Linux environment and executing basic terminal commands
 
 ### Tools Used
   - [Kali Linux](https://www.kali.org/get-kali/#kali-live) ISO: The operating system used for the bootable USB
@@ -56,27 +56,32 @@ This will output a SHA256 hash value specific to your local file. I ran this cod
 <img src="https://github.com/user-attachments/assets/9aaa2339-280d-463a-9922-d761e558c6e3" width="600"/> <br>
 
  ### 3c. **Compare the two values**
-A SHA256 checksum generates a unique cryptographic hash for a file, allowing users to verify its integrity by comparing it to a trusted hash, ensuring the file hasn't been tampered with or corrupted. Trust the checksum provided by Kali Linux and use it as the baseline for comparison. <br>
-Compare the value of that checksum, which you identified in step 3a, to the value you generated in step 3b. <br>
-If the two values do not match exactly, there is an issue with your file. This could be caused by various factors. Do not open the file, and delete it from your system immediately. <br>
-Only proceed with creating your bootable USB if the hash value of your file matches the provided SHA256 checksum. <br>
-As shown in the images above, my values match, so I can proceed with confidence. <br>
+A SHA256 checksum generates a unique cryptographic hash for a file, allowing users to verify its integrity by comparing it to a trusted hash, ensuring the file hasn't been tampered with or corrupted. Trust the checksum provided by Kali Linux and use it as the baseline for comparison. 
+
+Compare the value of that checksum, which you identified in step 3a, to the value you generated in step 3b. 
+
+If the two values do not match exactly, there is an issue with your file. This could be caused by various factors, ranging from something benign like a corrupted file due to download errors, to something more sinister, such as a man-in-the-middle attack. Do not open the file, and delete it from your system immediately 
+
+Only proceed with creating your bootable USB if the hash value of your file matches the provided SHA256 checksum. 
+
+As shown in the images above, my values match, so I can proceed with confidence. 
 
 ### 4. **Install Rufus**  <br>
-   Rufus is a powerful and efficient tool for creating bootable USB drives. We’re using it in this project because it simplifies the process of enabling persistence, making it quick and straightforward without the need for additional configuration or partitioning.<br>
-<br>
-Before downloading Rufus, it’s important to note that it is an open-source tool licensed under the GNU General Public License (GPL) version 3 or later. Open-source software is defined by its emphasis on freedom. Specifically, the freedom to view, modify, and distribute the source code. While those capabilities are beyond the scope of this project, it’s worth highlighting that Rufus is also free to use in the more familiar sense, often described in the open-source community as "free as in free beer." <br>
-<br>
-Because Rufus is provided at no cost to the public, the website may contain advertisements. Be mindful to avoid clicking on ads and instead navigate directly to the Latest Releases section. From there, select the blue hyperlink for the version appropriate to your system. For my Windows 11 machine, I chose the following version:<br>
-<br>
-rufus-4.6.exe Standard Windows x64 (1.5 MB). <br>
-<br>
+
+Rufus is a powerful and efficient tool for creating bootable USB drives. We’re using it in this project because it simplifies the process of enabling persistence, making it quick and straightforward without the need for additional configuration or partitioning.
+
+Before downloading Rufus, it’s important to note that it is an open-source tool licensed under the GNU General Public License (GPL) version 3 or later. Open-source software is defined by its emphasis on freedom. Specifically, the freedom to view, modify, and distribute the source code. While those capabilities are beyond the scope of this project, it’s worth highlighting that Rufus is also free to use in the more familiar sense, often described in the open-source community as "free as in free beer." 
+
+Because Rufus is provided at no cost to the public, the website may contain advertisements. Be mindful to avoid clicking on ads and instead navigate directly to the Latest Releases section. From there, select the blue hyperlink for the version appropriate to your system. For my Windows 11 machine, I chose the following version:
+
+rufus-4.6.exe Standard Windows x64 (1.5 MB). 
+
 This is the first option shown in the accompanying screenshot below. Download Rufus only from the official site to ensure safety and authenticity.
    Download the tool from this [site](https://rufus.ie/).   
-   <img src="https://github.com/user-attachments/assets/cb4af6c8-4e1f-4336-a4f4-98a92d626c95" width="600"/> <br>
+   <img src="https://github.com/user-attachments/assets/cb4af6c8-4e1f-4336-a4f4-98a92d626c95" width="600"/> 
 
 ### 5. **Create the Persistent Kali Linux Live USB with Rufus** <br>
- We’ve verified the integrity of the Kali Linux ISO and downloaded Rufus, and now we're ready for the fun stuff. We’re going to create the bootable USB with persistence. This will allow your Kali Linux environment to retain data and configuration changes across reboots. Meaning you can save files, download applications and make edits to your system and it will all still be that way when you log back on the next time. <br>
+We’ve verified the integrity of the Kali Linux ISO and downloaded Rufus, and now we're ready for the fun stuff. We’re going to create the bootable USB with persistence. This is a crucial feature for portable security testing environments. Persistence allows your Kali Linux setup to retain data and configuration changes across reboots, meaning you can save files, download applications, and make edits to your system. Everything will still be there the next time you log in.
  
  ### 5a. **Launch Rufus** <br>
  Just like checking the SHA256 hash to ensure the integrity of the downloaded file, verifying the publisher is a vital security step. While some tools release their SHA value for this purpose, Rufus does not 
@@ -92,7 +97,7 @@ This is the first option shown in the accompanying screenshot below. Download Ru
   
   This step is critical to ensuring your Kali Linux Live USB works properly with persistence enabled. Follow these instructions carefully:
   
-   1. From the Device dropdown menu, choose the USB drive you want to use. ALL DATA ON THIS DEVICE WILL BE PERMENANTLY EREASED
+   1. From the Device dropdown menu, choose the USB drive you want to use. ALL DATA ON THIS DEVICE WILL BE PERMANENTLY ERASED.
    PLEASE SELECT WITH CAUTION.
 
    2. Click the SELECT button next to Boot Selection, and navigate to the Kali Linux Live ISO file you downloaded in Step 1.
@@ -201,7 +206,7 @@ Now that you understand the theory behind it, let's move on to the technical ste
 1d. Go to Troubleshoot > Advanced options > UEFI Firmware Settings > Restart.
 
 ## 2. **Change Settings**
-This step is more difficult for me to explain via text. As explained earlier, in the Accessing BIOS/UEFI Theory section, there are various ways in which the BIOS/UEFI may function depending on your machine.
+This step is more difficult for me to explain via text. As explained earlier, there are various ways in which the BIOS/UEFI may function depending on your machine.
 
 It is likely that you will have to navigate using arrows or hotkeys.
 
