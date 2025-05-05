@@ -1,7 +1,9 @@
 # Creating a Persistent Kali Linux Live USB
 
 ## Objective
-The objective of this project is to demonstrate how to create a persistent Kali Linux Live USB using Rufus, from the point of view of a Windows 11 machine. This setup allows you to run Kali Linux from the USB drive without installing it on the host system, while enabling persistence to save data and configurations across reboots. This provides a portable and reliable security testing environment that can be used on different machines.
+This project was developed as a written reference to accompany a live demonstration I led for the WGU Student Chapter of WiCyS, where I serve as Vice President of Professional Development. With over 900 members, our chapter is dedicated to supporting students entering the cybersecurity field. This beginner-friendly presentation was designed to provide members with an accessible, affordable, and hands-on introduction to Kali Linux that complements the theoretical foundations in our early curriculum.
+
+The objective of this project is to demonstrate how to create a persistent Kali Linux Live USB using Rufus, from the point of view of a Windows 11 machine. This setup allows you to run Kali Linux from the USB drive without installing it on the host system, while enabling persistence to save data and configurations across reboots. This provides a portable and reliable Kali Linux environment that can be used on different machines.
 
 Additionally, we will cover important security verification practices, such as checking the SHA256 hash of the Kali Linux Live ISO to ensure file integrity, and explaining Rufus’s certificate-based verification for confirming the authenticity of the downloaded file.
 
